@@ -33,7 +33,7 @@ jobs:
       # Build the Docker image
       - name: Build
         run: |-
-          docker build --tag "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA_KEY" server
+          docker build --tag "gcr.io/${{ secrets.GCE_PROJECT }}/$GCE_INSTANCE-image:${{ secrets.GCE_SA_KEY }}" server
       # Push the Docker image to Google Container Registry
       # Docker image를 Google Container Registry push 함.
       # 이때 Google Container Registry API 사용 해야함.
