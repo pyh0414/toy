@@ -7,9 +7,9 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
+  KEY: ${{ secrets.KEY }}
   GCE_INSTANCE: instance1
   GCE_INSTANCE_REGION: us-west1-b
-  KEY: ${{ secrets.KEY }}
 
 jobs:
   build:
@@ -27,8 +27,8 @@ jobs:
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v0
         with:
-          service_account_key: $KEY
-          project_id: $PROJECT_ID
+          service_account_key: ${{ secrets.KEY }}
+          project_id: ${{ secrets.PROJECT_ID }}
 
       # GCE Docker 인증
       - run: |-
