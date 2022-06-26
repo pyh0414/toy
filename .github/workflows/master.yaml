@@ -6,10 +6,10 @@ on:
       - master
 
 env:
-  PROJECT_ID: ${{ secret.GCE_PROJECT }}
+  PROJECT_ID: ${{ secrets.GCE_PROJECT }}
   GCE_INSTANCE: instance1
   GCE_INSTANCE_REGION: us-west1-b
-  GITHUB_SHA_KEY: ${{ secret.GCE_SA_KEY }}
+  GITHUB_SHA_KEY: ${{ secrets.GCE_SA_KEY }}
 
 jobs:
   build:
