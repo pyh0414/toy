@@ -37,7 +37,7 @@ jobs:
       # Build the Docker image
       - name: Build
         run: |-
-          docker build --tag yeonhopark .
+          docker build --tag gcr.io/wired-name-354114/yeonhopark .
       # Push the Docker image to Google Container Registry
       # Docker image를 Google Container Registry push 함.
       # 이때 Google Container Registry API 사용 해야함.
