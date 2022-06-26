@@ -41,6 +41,10 @@ jobs:
       # Push the Docker image to Google Container Registry
       # Docker image를 Google Container Registry push 함.
       # 이때 Google Container Registry API 사용 해야함.
-      - name: Publish
+      - name: image push to container registry
         run: |-
           docker push gcr.io/wired-name-354114/yeonhopark
+
+      - name: deploy
+        run: |-
+          gcloud app deploy --image-url=grc.io/wired-name-354114/yeonhopark
