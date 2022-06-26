@@ -19,17 +19,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: print
-        run: echo $PROJECT_ID
-          echo $GCE_INSTANCE
-          echo $GCE_INSTANCE_REGION
-          echo $GITHUB_SHA_KEY
       # CD 시작 부분 (GCE 배포 설정)
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v0
         with:
-          service_account_key: ${{ secrets.GITHUB_SHA_KEY }}
-          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_key: ${{ secrets.GCE_SA_KEY }}
+          project_id: ${{ secrets.GCE_PROJECT }}
 
       # GCE Docker 인증
       - run: |-
