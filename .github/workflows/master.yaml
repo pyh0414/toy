@@ -47,4 +47,4 @@ jobs:
 
       - name: deploy
         run: |-
-          gcloud app deploy --image-url=grc.io/wired-name-354114/yeonhopark
+          gcloud compute instances update-container instance-1 --zone us-central1-a --container-image=gcr.io/wired-name-354114/yeonhopark
