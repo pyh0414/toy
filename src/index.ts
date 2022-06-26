@@ -11,37 +11,6 @@ const app = express();
 (async function () {
   dotenv.config();
 
-  interface LazadaDefaultParams {
-    sign?: string;
-    app_key: string;
-    timestamp: string;
-    sign_method: string;
-  }
-
-  interface LazadaAuthParams extends LazadaDefaultParams {
-    code?: string; // 토큰 발급을 위한 code
-    refresh_token?: string;
-  }
-
-  type TEST = { age: string; name: string };
-  const params: LazadaAuthParams = {
-    code: "21",
-    refresh_token: "test",
-    sign: "asd",
-    app_key: "asd",
-    timestamp: "asd",
-    sign_method: "asd",
-  };
-
-  type a = {
-    name: string;
-    address: string;
-  };
-
-  let queryString = new URLSearchParams(
-    params as unknown as Record<string, string>
-  ).toString();
-
   const server = new ApolloServer({
     schema,
     context,
