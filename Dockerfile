@@ -4,7 +4,7 @@ FROM node:14
 WORKDIR /app
 COPY . ./
 
-RUN npm install && npx prisma generate && npm build
+RUN npm install && npx prisma generate && npm run build
 COPY . .
 
 EXPOSE 3000

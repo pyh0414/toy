@@ -43,4 +43,4 @@ jobs:
       # 이때 Google Container Registry API 사용 해야함.
       - name: Publish
         run: |-
-          docker push yeonhopark
+          docker push gcr.io/wired-name-354114/yeonhopark
