@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: print variable
+        run: |
+          echo $PROJECT_ID $GCE_INSTANCE $GCE_INSTANCE_REGION $KEY
+
       - name: checkout
         uses: actions/checkout@v2
 
