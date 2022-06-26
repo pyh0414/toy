@@ -20,7 +20,7 @@ on:
       - master
 
 env:
-  PROJECT_ID: $
+  PROJECT_ID: ${{ secrets.GCE_PROJECT }}
   GCE_INSTANCE: instance1 # TODO: update to instance name
   GCE_INSTANCE_ZONE: us-west1-b # TODO: update to instance zone
 
