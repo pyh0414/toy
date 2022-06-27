@@ -50,6 +50,6 @@ jobs:
         with:
           host: 34.168.3.9
           username: yhpark
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: ls al
