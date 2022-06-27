@@ -10,6 +10,7 @@ env:
   KEY: ${{ secrets.KEY }}
   GCE_INSTANCE: instance1
   GCE_INSTANCE_REGION: us-west1-b
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
 jobs:
   build:
@@ -50,6 +51,6 @@ jobs:
         with:
           host: 34.168.3.9
           username: yhpark
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: $SSH_PRIVATE_KEY
           port: 22
           script: whoami
