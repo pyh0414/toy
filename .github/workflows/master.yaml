@@ -5,13 +5,6 @@ on:
     branches:
       - master
 
-env:
-  PROJECT_ID: ${{ secrets.PROJECT_ID }}
-  KEY: ${{ secrets.KEY }}
-  GCE_INSTANCE: instance1
-  GCE_INSTANCE_REGION: us-west1-b
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
