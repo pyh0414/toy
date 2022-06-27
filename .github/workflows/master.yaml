@@ -45,20 +45,11 @@ jobs:
         run: |-
           docker push gcr.io/wired-name-354114/yeonhopark
 
-      - name: executing remote ssh commands using password
+      - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
           host: 34.168.3.9
           username: yhpark
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: ls al
-
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.PORT }}
           script: whoami
