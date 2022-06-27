@@ -49,6 +49,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 34.168.3.9
-          username: instance1
+          username: yhpark
           key: ${{ secrets.KEY }}
+          port: 22
           script: ls al
