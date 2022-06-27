@@ -45,6 +45,10 @@ jobs:
         run: |-
           docker push gcr.io/wired-name-354114/yeonhopark
 
-      - name: deploy
-        run: |-
-          gcloud compute instances update-container instance1 --zone us-west1-b --container-image=gcr.io/wired-name-354114/yeonhopark
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: 34.168.3.9
+          username: instance1
+          key: ${{ secrets.KEY }}
+          script: ls al
