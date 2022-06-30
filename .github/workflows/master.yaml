@@ -49,4 +49,4 @@ jobs:
           script: |
             cd ./project
             git pull
-            docker pull gcr.io/wired-name-354114/yeonhopark@sha256:2c48010b80c524751064dba19a1a103bc3df7f508b71166f275527b97c73d944
+            docker pull gcr.io/wired-name-354114/yeonhopark:latest
