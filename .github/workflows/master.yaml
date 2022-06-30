@@ -49,4 +49,3 @@ jobs:
           script: |
             cd ./project
             git pull
-            docker pull gcr.io/wired-name-354114/yeonhopark:latest
