@@ -47,4 +47,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            whoami
+            cd ./project
+            git pull
+            docker pull gcr.io/wired-name-354114/yeonhopark:latest
