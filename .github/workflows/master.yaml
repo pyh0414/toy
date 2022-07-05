@@ -49,5 +49,3 @@ jobs:
           script: |
             cd project
             git pull
-            source meta.sh
-            docker-compose up -d
