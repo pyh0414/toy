@@ -16,6 +16,7 @@ jobs:
 
       - name: checkout
         uses: actions/checkout@v2
+
         run: git pull
 
       # CD 시작 부분 (GCE 배포 설정)
