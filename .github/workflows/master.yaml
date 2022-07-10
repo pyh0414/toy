@@ -10,42 +10,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: print variable
-        run: |
-          echo $PROJECT_ID $GCE_INSTANCE $GCE_INSTANCE_REGION $KEY
+      # - name: print variable
+      #   run: |
+      #     echo $PROJECT_ID $GCE_INSTANCE $GCE_INSTANCE_REGION $KEY
 
-      - name: checkout
-        uses: actions/checkout@v2
+      # - name: checkout
+      #   uses: actions/checkout@v2
 
-      # CD 시작 부분 (GCE 배포 설정)
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v0
-        with:
-          service_account_key: ${{ secrets.KEY }}
-          project_id: ${{ secrets.PROJECT_ID }}
-
-      # GCE Docker 인증
-      - run: |-
-          gcloud --quiet auth configure-docker
-
-      # Build the Docker image
-      - name: Build
-        run: |-
-          docker build --tag gcr.io/wired-name-354114/yeonhopark .
-      # Push the Docker image to Google Container Registry
-      # Docker image를 Google Container Registry push 함.
-      # 이때 Google Container Registry API 사용 해야함.
-      - name: image push to container registry
-        run: |-
-          docker push gcr.io/wired-name-354114/yeonhopark
-
-      # - name: executing remote ssh commands using ssh key
-      #   uses: appleboy/ssh-action@master
+      # # CD 시작 부분 (GCE 배포 설정)
+      # - name: Setup gcloud
+      #   uses: google-github-actions/setup-gcloud@v0
       #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     port: ${{ secrets.PORT }}
-      #     script: |
-      #       cd project
-      #       git pull
+      #     service_account_key: ${{ secrets.KEY }}
+      #     project_id: ${{ secrets.PROJECT_ID }}
+
+      # # GCE Docker 인증
+      # - run: |-
+      #     gcloud --quiet auth configure-docker
+
+      # # Build the Docker image
+      # - name: Build
+      #   run: |-
+      #     docker build --tag gcr.io/wired-name-354114/yeonhopark .
+      # # Push the Docker image to Google Container Registry
+      # # Docker image를 Google Container Registry push 함.
+      # # 이때 Google Container Registry API 사용 해야함.
+      # - name: image push to container registry
+      #   run: |-
+      #     docker push gcr.io/wired-name-354114/yeonhopark
+
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            ls -al
+            cd project
+            git pull
