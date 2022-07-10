@@ -48,5 +48,3 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             ls -al
-            cd project
-            git pull
