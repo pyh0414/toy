@@ -50,3 +50,4 @@ jobs:
             sudo su
             whoami
             cd project
+            ls -al
