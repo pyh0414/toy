@@ -47,5 +47,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            ls -al
-            sudo git pull
+            sudo su
+            cd project
+            git pull
