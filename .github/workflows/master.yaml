@@ -48,3 +48,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             ls -al
+            git pull
