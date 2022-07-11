@@ -50,4 +50,3 @@ jobs:
             sudo su
             whoami
             cd project
-            git pull
