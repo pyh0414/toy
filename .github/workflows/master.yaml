@@ -51,3 +51,4 @@ jobs:
             whoami
             cd project
             git pull
+            docker-compose up -d
