@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      API_MYSQL_URL: ${API_MYSQL_URL}
+      - API_MYSQL_URL=${API_MYSQL_URL}
     restart: always
     ports:
-      - 3000:3000
+      - 4964:4964
