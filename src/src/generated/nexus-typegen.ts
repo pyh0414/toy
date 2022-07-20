@@ -40,6 +40,9 @@ export interface NexusGenObjects {
     id: string; // ID!
     name?: string | null; // String
   }
+  testResult: { // root type
+    name?: string | null; // String
+  }
 }
 
 export interface NexusGenInterfaces {
@@ -60,6 +63,7 @@ export interface NexusGenFieldTypes {
     userId: string; // String!
   }
   Query: { // field return type
+    test: NexusGenRootTypes['testResult'] | null; // testResult
     users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
   }
   User: { // field return type
@@ -68,6 +72,9 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     name: string | null; // String
     posts: Array<NexusGenRootTypes['Post'] | null> | null; // [Post]
+  }
+  testResult: { // field return type
+    name: string | null; // String
   }
 }
 
@@ -79,6 +86,7 @@ export interface NexusGenFieldTypeNames {
     userId: 'String'
   }
   Query: { // field return type name
+    test: 'testResult'
     users: 'User'
   }
   User: { // field return type name
@@ -87,6 +95,9 @@ export interface NexusGenFieldTypeNames {
     id: 'ID'
     name: 'String'
     posts: 'Post'
+  }
+  testResult: { // field return type name
+    name: 'String'
   }
 }
 
