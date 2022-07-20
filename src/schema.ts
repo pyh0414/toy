@@ -1,7 +1,7 @@
-import { makeSchema } from "nexus";
-import path, { join } from "path";
+import { makeSchema } from "nexus"
+import path, { join } from "path"
 
-import types from "./types.ts";
+import types from "./types"
 
 export default makeSchema({
   features: {
@@ -18,4 +18,4 @@ export default makeSchema({
     typegen: join(__dirname, "./src/generated", "nexus-typegen.ts"), // 2
     schema: join(__dirname, "./src/generated", "schema.graphql"), // 3
   },
-});
+})

@@ -50,5 +50,5 @@ jobs:
             sudo su
             cd project
             ls
-            git pull origin master
+            sudo git pull origin master
             docker-compose up -d
