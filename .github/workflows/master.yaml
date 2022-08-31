@@ -39,16 +39,18 @@ jobs:
       #   run: |-
       #     docker push gcr.io/wired-name-354114/yeonhopark
 
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
+      - name: Git action result notification
+        uses: 8398a7/action-slack@v3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            sudo su
-            cd project
-            ls
-            sudo git pull origin master
-            docker-compose up -d
+            status: custom
+            fields: workflow,job,commit,repo,ref,author,took
+            custom_payload: |
+             {
+               attachments: [{
+                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                 text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
+               }]
+             }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          if: always() # Pick up events even if the job fails or is canceled.
