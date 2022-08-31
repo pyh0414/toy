@@ -20,5 +20,6 @@ jobs:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
         env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }} # required
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
           if: always() # Pick up events even if the job fails or is canceled.
