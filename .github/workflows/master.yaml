@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Testt on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
