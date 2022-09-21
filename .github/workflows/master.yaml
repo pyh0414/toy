@@ -30,7 +30,8 @@ jobs:
       - name: Git action result notification
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
+          status: ${{ job.failure }}
+          job_name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
           mention: here
           if_mention: "failure,cancelled"
