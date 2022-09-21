@@ -30,11 +30,10 @@ jobs:
       - name: Git action result notification
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.failure }}
+          status: ${{ job.status }}
           job_name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
           mention: here
-          if_mention: "failure,cancelled"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
           if: always() # Pick up events even if the job fails or is canceled.
