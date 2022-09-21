@@ -24,6 +24,9 @@ jobs:
       - name: npm install
         run: npm install
 
+      - name: tsc
+        uses: icrawl/action-tsc@v1
+
       - name: Git action result notification
         uses: 8398a7/action-slack@v3.8.0
         with:
