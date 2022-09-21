@@ -17,7 +17,7 @@ const usersQuery = queryType({
         }),
         resolve: (parent, args, ctx, info) => {
           return {
-            name: "yeonho",
+            names: "yeonho",
           }
         },
       })
