@@ -14,6 +14,16 @@ jobs:
         node_version: [14]
         os: [ubuntu-20.04]
     steps:
+      - name: Git action result notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          job_name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+          if: always() # Pick up events even if the job fails or is canceled.
+
       - name: install node v12
         uses: actions/setup-node@v1
         with:
@@ -24,13 +34,3 @@ jobs:
 
       - name: tsc
         uses: icrawl/action-tsc@v1
-
-      - name: Git action result notification
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          job_name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
-          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-          if: always() # Pick up events even if the job fails or is canceled.
