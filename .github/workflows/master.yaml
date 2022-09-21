@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: install node v12
+      - name: install node v14
         uses: actions/setup-node@v1
         with:
           node-version: 14
@@ -33,7 +33,7 @@ jobs:
           status: ${{ job.status }}
           job_name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-          mention: here
+          if_mention: failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
           if: always() # Pick up events even if the job fails or is canceled.
