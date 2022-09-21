@@ -36,7 +36,7 @@ jobs:
           if_mention: failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-        if: always() # Pick up events even if the job fails or is canceled.
+          if: always() # Pick up events even if the job fails or is canceled.
 
 
       # - name: Notify deployment
