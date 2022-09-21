@@ -33,10 +33,9 @@ jobs:
           status: ${{ job.status }}
           job_name: Testasd on node ${{ matrix.node_version }} and ${{ matrix.os }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-          if_mention: failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-          if: always() # Pick up events even if the job fails or is canceled.
+        if: always() # Pick up events even if the job fails or is canceled.
 
 
       # - name: Notify deployment
