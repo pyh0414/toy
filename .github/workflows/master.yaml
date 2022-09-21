@@ -14,6 +14,17 @@ jobs:
         node_version: [14]
         os: [ubuntu-20.04]
     steps:
+      - name: install node v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: npm install
+        run: npm install
+
+      - name: tsc
+        uses: icrawl/action-tsc@v1
+
       - name: Git action result notification
         uses: 8398a7/action-slack@v3
         with:
